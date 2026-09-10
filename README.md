@@ -1,5 +1,7 @@
 # Push Flap — publish with GitHub Pages
 
+**Live site: https://neiljpat.github.io/push-flap/**
+
 This is the complete game, ready to host. No installation, server, API key, or build step is required.
 
 ## Publish from your browser
@@ -9,7 +11,7 @@ This is the complete game, ready to host. No installation, server, API key, or b
 3. In the repository, choose **Add file → Upload files**. Drag the files and folders from INSIDE the extracted `push-flap` folder into the upload area. Upload the game files themselves, not the ZIP or its containing folder. Commit the changes to `main`.
 4. Confirm `index.html`, `app.js`, `engine.js`, and `style.css` are at the top level of the repository, alongside the `assets` and `vendor` folders.
 5. Open **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**. Choose **main** and **/(root)**, then **Save**.
-6. Wait for deployment to finish. The Pages settings screen will show a **Visit site** link. The normal address is `https://YOUR-USERNAME.github.io/push-flap/`.
+6. Wait for deployment to finish. The Pages settings screen will show a **Visit site** link. The normal address is `https://YOUR-USERNAME.github.io/push-flap/` — for this repository, https://neiljpat.github.io/push-flap/.
 7. Open the HTTPS address on your phone or computer. Choose **Enable camera**, allow camera access, and follow the two-position calibration. You can also play with taps or Space.
 
 The website will be public and playable without ChatGPT. A public repository also makes its source code visible. Camera frames stay on the player's device; they are never recorded or uploaded. Each device keeps its own best scores.
