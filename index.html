@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111719">
+  <meta name="description" content="A push-up-controlled arcade game. Use your camera to fly through the gaps, or play with a tap.">
+  <title>Push Flap — the push-up arcade</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="./" aria-label="Push Flap home">PUSH<span>FLAP</span><span class="logo-square" aria-hidden="true"></span></a>
+    <span class="header-caption">THE PUSH-UP ARCADE</span>
+    <button class="icon-button" id="sound-button" aria-label="Turn sound off" aria-pressed="true" title="Sound on"></button>
+  </header>
+  <main class="game-layout">
+    <section class="game-column" aria-label="Push Flap game">
+      <div class="stage" id="stage">
+        <video id="camera" autoplay playsinline muted aria-label="Your camera preview"></video>
+        <canvas id="game" width="432" height="720" tabindex="0" aria-label="Game play area. In tap mode, press Space or tap to flap. Press P to pause."></canvas>
+        <div class="hud">
+          <div class="hud-best"><span>BEST</span><strong id="hud-best">0</strong></div>
+          <div class="hud-score"><span>GAPS</span><strong id="score">0</strong></div>
+          <button class="icon-button pause-button" id="pause-button" aria-label="Pause game" title="Pause (P)" disabled></button>
+        </div>
+        <div class="tracking-pill" id="tracking-pill" hidden><span class="tracking-dot"></span><span id="tracking-label">Looking for your face</span></div>
+        <div class="overlay" id="overlay" aria-live="polite"></div>
+        <div class="tracking-alert" id="tracking-alert" hidden><strong>Face out of view</strong><span>Game frozen. Face the camera to continue.</span></div>
+        <div class="play-hint" id="play-hint">YOUR BODY IS THE CONTROLLER</div>
+        <div class="countdown" id="countdown" hidden></div>
+      </div>
+      <div class="under-stage"><span id="under-label">Rise to climb. Lower to dive.</span><button id="fullscreen-button" aria-label="Expand game">Full screen <span aria-hidden="true">⛶</span></button></div>
+    </section>
+    <aside class="controls" aria-label="Game controls">
+      <div class="control-heading"><span class="eyebrow">LET’S PLAY</span><h1>Every rep.<br>One more gap.</h1></div>
+      <fieldset class="control-group"><legend>Play with</legend><div class="mode-switch" role="radiogroup" aria-label="Control mode"><button id="body-mode" role="radio" aria-checked="true">Your body</button><button id="tap-mode" role="radio" aria-checked="false">Tap / space</button></div></fieldset>
+      <fieldset class="control-group"><legend>Difficulty</legend><div class="difficulty-switch" role="radiogroup" aria-label="Difficulty"><button data-difficulty="chill" role="radio" aria-checked="true">Chill</button><button data-difficulty="classic" role="radio" aria-checked="false">Classic</button><button data-difficulty="beast" role="radio" aria-checked="false">Beast</button></div><p class="control-note" id="difficulty-note">Wider gaps. Room to find your rhythm.</p></fieldset>
+      <div class="instructions" id="instructions"><h2>The setup</h2><ol><li><span>01</span><p>Prop your phone near the floor, with the front camera facing you.</p></li><li><span>02</span><p>Set your high and low positions. Keep your face in view.</p></li><li><span>03</span><p>Push up to climb. Lower down to dive. Get through the gaps.</p></li></ol></div>
+      <div class="tracker-panel" id="tracker-panel" hidden><div class="tracker-title"><span>Movement range</span><button id="recalibrate">Recalibrate</button></div><div class="range-track"><div id="range-marker"></div><span class="range-notch first"></span><span class="range-notch last"></span></div><div class="range-labels"><span>LOW</span><span>HIGH</span></div></div>
+      <div class="local-best"><div><span>PERSONAL BEST</span><small id="best-context">Body · Chill · this device</small></div><strong id="local-best">00</strong></div>
+      <p class="privacy" id="privacy"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>Your camera stays on your device.<br>No recording. No uploads.</span></p>
+      <button class="camera-off" id="camera-off" hidden>Turn camera off</button>
+    </aside>
+  </main>
+  <footer class="site-footer"><span>ONE GAP AT A TIME.</span><span id="footer-controls"><kbd>P</kbd> pause <span class="footer-dot">·</span> <kbd>R</kbd> restart</span></footer>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
